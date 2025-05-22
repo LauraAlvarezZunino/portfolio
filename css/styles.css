@@ -154,27 +154,6 @@
 
 }
 
-/*
-.sectionSobremi {
-  flex: 1;
-  min-width: 300px;
-  max-width: 600px;
-  padding: 20px;
-  color: #ffffff;
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  font-weight: 700;
-  line-height: 1.5;
-  text-align: left;
-  text-wrap: pretty;
-
-  text-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.5),
-    0 2px 6px rgba(0, 0, 0, 0.3);
-  
-  position: relative;
-}*/
-
-
 
 .imgInicio, .imgSobreMi {
   flex-shrink: 0;
@@ -232,7 +211,7 @@
 .columnas {
   display: flex;
   justify-content: space-between;
-  gap: 40px;
+  gap: 20px;
 }
 
 .columnas ul {
@@ -240,6 +219,7 @@
   list-style: none;
   padding: 0 20px;
   position: relative;
+  color:whitesmoke;
 }
 
 
@@ -271,7 +251,8 @@
 }
 
 .imagenCard {
-  width: 100%;
+  width: 300px;
+  height: 200px;
   border-radius: 8px;
 }
 
@@ -348,7 +329,7 @@ textarea.floating-input {
   resize: vertical;
 }
 
-/* Estilo para el botón (asumiendo que quieres mantenerlo consistente) */
+
 .botonEnviar {
   width: 100%;
   padding: 15px;

@@ -1,7 +1,7 @@
 function mainContent() {
   let mainElement = document.querySelector("main");
   if (mainElement) {
-    mainElement.innerHTML = ""; // Limpia el contenido anterior
+    mainElement.innerHTML = ""; // hay que limpiar el contenido anterior
     return mainElement;
   }
 
@@ -46,16 +46,14 @@ function crearInicio() {
   const main = mainContent();
 
   const inicio = document.createElement("section");
-  inicio.classList.add("inicio"); // cambio aquí, ya no usamos "sobreMi"
+  inicio.classList.add("inicio"); 
 
-  // Columna de texto
   const contenedorTexto = document.createElement("div");
   contenedorTexto.classList.add("sectionInicio");
 
   const texto1 = crearTexto("Hi! I'm Laura Alvarez!", "tituloInicio");
   const texto2 = crearTexto(" ", "textoInicio");
 
-  // Íconos sociales
   const redes = document.createElement("div");
   redes.classList.add("iconosSociales");
   redes.appendChild(crearImagenConEnlace("https://cdn-icons-png.flaticon.com/512/300/300221.png", "https://www.google.com", "iconoSocial"));
@@ -66,7 +64,6 @@ function crearInicio() {
   contenedorTexto.appendChild(texto2);
   contenedorTexto.appendChild(redes);
 
-  // Imagen a la derecha
   const img = document.createElement("img");
   img.classList.add("imgInicio");
   img.src = './img/perfil.avif';
@@ -102,7 +99,7 @@ function crearSobreMi() {
 
   contenedorImg.appendChild(img);
 
-  // Texto + columnas a la derecha
+
   const contenedorContenido = document.createElement("div");
   contenedorContenido.classList.add("contenidoSobreMi");
 
@@ -112,27 +109,25 @@ function crearSobreMi() {
   );
   contenedorContenido.appendChild(texto);
 
-  // Línea horizontal
   const linea = document.createElement("hr");
   linea.classList.add("lineaHorizontal");
   contenedorContenido.appendChild(linea);
 
-  // Columnas
   const columnas = document.createElement("div");
   columnas.classList.add("columnas");
 
   const experiencia = document.createElement("ul");
-  experiencia.innerHTML = `<h4>Experience</h4>
-    <li>🌟 Pediatric Intensive Care Unit Nurse</li>
-    <li>🧠 Neonatal Nurse</li>
-    <li>🤝 Home Healthcare Nurse</li>
+  experiencia.innerText = `Experience
+  🧸 Pediatric Intensive Care Unit Nurse
+    🚼 Neonatal Nurse
+    🩺 Home Healthcare Nurse
   `;
 
   const estudios = document.createElement("ul");
-  estudios.innerHTML = `<h4>Qualifications</h4>
-    <li>📚 Bachelor of Nursing</li>
-    <li>💻 Studying Technician in analysis, administration and application programming</li>
-    <li>📖 Courses in JS, HTML, CSS</li>
+  estudios.innerText = `Qualifications
+    📚 Bachelor of Nursing
+    💻 Studying Technician in analysis, administration and application programming
+    📖 Courses in JS, HTML, CSS
   `;
 
   columnas.appendChild(experiencia);
@@ -152,22 +147,22 @@ function crearProyectos() {
 
   const cardUno = crearCardConContenido(
 
-    "Proyacto", // Texto de ejemplo
-    "./img/room.png", // Imagen de ejemplo
-    "cardproyecto" // Clase de la tarjeta
+    "Proyacto", 
+    "./img/room.png",
+    "cardproyecto" 
   );
   const cardDos = crearCardConContenido(
 
-    "RoomService", // Texto de ejemplo
-    "./img/room.png", // Imagen de ejemplo
-    "cardproyecto" // Clase de la tarjeta
+    "RoomService", 
+    "./img/room.png",
+    "cardproyecto" 
   );
 
   const cardTres = crearCardConContenido(
 
-    "Vivi Tandil", // Texto de ejemplo
-    "./img/vivitandil.png", // Imagen de ejemplo
-    "cardproyecto" // Clase de la tarjeta
+    "Vivi Tandil", 
+    "./img/vivitandil.png",
+    "cardproyecto" 
   );
 
   proyectos.appendChild(cardUno);
@@ -188,6 +183,8 @@ function crearContacto() {
  const titulo = crearTexto("Contacto","tituloSobreMiHeader");
 
   contacto.appendChild(titulo);
+
+
   // === Input Nombre con label flotante ===
  
   const grupoNombre = document.createElement("div");
@@ -206,7 +203,7 @@ function crearContacto() {
   grupoNombre.appendChild(inputNombre);
   grupoNombre.appendChild(labelNombre);
 
-  // correo
+
   const grupoCorreo = document.createElement("div");
   grupoCorreo.classList.add("input-group");
 
@@ -223,7 +220,8 @@ function crearContacto() {
   grupoCorreo.appendChild(inputCorreo);
   grupoCorreo.appendChild(labelCorreo);
 
-  // Comentario
+
+
   const grupoComentario = document.createElement("div");
   grupoComentario.classList.add("input-group");
 
@@ -243,13 +241,13 @@ textareaComentario.setAttribute("placeholder", " ");
   grupoComentario.appendChild(textareaComentario);
   grupoComentario.appendChild(labelComentario);
 
-  // Botón
+
   const botonEnviar = document.createElement("button");
   botonEnviar.setAttribute("type", "submit");
   botonEnviar.classList.add("botonEnviar");
   botonEnviar.innerText = "Enviar";
 
-  // Agregar al form
+ 
   form.appendChild(grupoNombre);
   form.appendChild(grupoCorreo);
   form.appendChild(grupoComentario);

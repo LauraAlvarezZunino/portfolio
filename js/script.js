@@ -185,8 +185,7 @@ function crearContacto() {
   contacto.appendChild(titulo);
 
 
-  // === Input Nombre con label flotante ===
- 
+  
   const grupoNombre = document.createElement("div");
   grupoNombre.classList.add("input-group");
 

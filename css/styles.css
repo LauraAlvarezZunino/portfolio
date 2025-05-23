@@ -2,7 +2,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 /* MAIN */
 .main {
@@ -11,16 +10,14 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  overflow-x: hidden;
+  line-height: 1.6;
 }
-
 
 /*----------------------- HEADER Y NAV---------------------------- */
 .header {
-  position: fixed;
+  position: fixed; /*fijo*/
   top: 0;
   width: 100%;
-  z-index: 999;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   background-color: rgba(0, 0, 0, 0.1);
   padding: 10px 20px;
@@ -103,6 +100,7 @@
     transform: translateY(0);
   }
 }
+
 @keyframes cambiarTexto {
   0% { content: "I'm developer"; opacity: 1; }
   25% { content: " I'm nurse"; opacity: 1; }
@@ -178,8 +176,8 @@
   max-width: 600px;
   padding: 20px;
   color: #ffffff;
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 16px;
+  line-height: 1.6;/*Significa que la altura de cada línea será 1.6 veces el tamaño de fuente actual.*/
   text-align: left;
 }
 
@@ -187,7 +185,7 @@
   position: absolute;
   top: 10px;
   left: 0;
-  font-size: 1.2rem;
+  font-size: 25px;
   color: whitesmoke;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -252,7 +250,7 @@
 
 .imagenCard {
   width: 300px;
-  height: 200px;
+  height: 175px;
   border-radius: 8px;
 }
 
@@ -267,7 +265,7 @@
   max-width: 500px;
   padding: 30px;
   border-radius: 16px;
-    backdrop-filter: blur(1px);
+  backdrop-filter: blur(1px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); 
   background-color: rgba(255, 255, 255, 0.01); 
 
@@ -310,7 +308,9 @@
 }
 
 .floating-input:focus ~ label,
-.floating-input:not(:placeholder-shown) ~ label {
+.floating-input:not(:placeholder-shown) ~ label {  /*Selector combinado:Aplica e cuando:
+El input tiene foco (:focus), o
+El input no está vacío (:not(:placeholder-shown)*/
   top: 0;
   left: 10px;
   font-size: 14px;
@@ -349,14 +349,12 @@ textarea.floating-input {
 }
 /*------------------------------------------------------*/
 body {
-    margin: auto;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    overflow: auto;
-    background:#212130; 
-    background-size: 400% 400%;
-    background-attachment: fixed;
-      color: white;
-  line-height: 1.6;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #212130;
+  background-size: 400% 400%;
+  background-attachment: fixed;
+  color: white;
+  overflow-x: hidden; /* Mejor evitar scroll horizontal */
 }
 
 .wave {

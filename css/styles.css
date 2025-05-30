@@ -13,7 +13,7 @@
   line-height: 1.6;
 }
 
-/*----------------------- HEADER Y NAV---------------------------- */
+/*---------------- HEADER Y NAV--------------- */
 .header {
   position: fixed; /*fijo*/
   top: 0;
@@ -35,6 +35,12 @@
 .nav {
   display: flex;
   gap: 10px;
+}
+.imgnav{
+height: 70px;
+ margin:0px;
+
+ display: flex;
 }
 
 .botones {

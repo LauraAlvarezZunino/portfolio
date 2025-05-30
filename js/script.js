@@ -3,6 +3,7 @@ function mainContent() {
   if (mainElement) {
     mainElement.innerHTML = ""; // hay que limpiar el contenido anterior
     return mainElement;
+
   }
 
   // Si no existe, lo crea
@@ -22,8 +23,14 @@ function crearHeader() {
   const sectionHeader = document.createElement("section");
   sectionHeader.classList.add("sectionHeader");
 
-  const textoHeader = crearTexto("Bienvenid@ a mi portfolio", "textoHeader");
-  sectionHeader.appendChild(textoHeader);
+  //const textoHeader = crearTexto("Bienvenid@ a mi portfolio", "textoHeader");
+  //sectionHeader.appendChild(textoHeader);
+
+  const imgnav = document.createElement("img");
+  imgnav.classList.add("imgnav");
+  imgnav.src = './img/imgnav.png';
+  imgnav.alt = 'Foto de nav';
+
 
   const nav = document.createElement("nav");
   nav.classList.add("nav");
@@ -31,9 +38,10 @@ function crearHeader() {
   const botonSobreMi = crearBoton("Sobre mí", crearSobreMi);
   const botonProyectos = crearBoton("Proyectos", crearProyectos);
   const botonContacto = crearBoton("Contacto", crearContacto);
-const botonHome= crearBoton("Home",crearInicio);
-nav.appendChild(botonHome);  
-nav.appendChild(botonSobreMi);
+  const botonHome = crearBoton("Home", crearInicio);
+  sectionHeader.appendChild(imgnav);
+  nav.appendChild(botonHome);
+  nav.appendChild(botonSobreMi);
   nav.appendChild(botonProyectos);
   nav.appendChild(botonContacto);
 
@@ -78,6 +86,8 @@ function crearInicio() {
 
   main.appendChild(inicio);
 }
+
+
 
 function crearSobreMi() {
   const main = mainContent();

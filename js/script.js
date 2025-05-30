@@ -23,7 +23,7 @@ function crearHeader() {
   const sectionHeader = document.createElement("section");
   sectionHeader.classList.add("sectionHeader");
 
-  //const textoHeader = crearTexto("Bienvenid@ a mi portfolio", "textoHeader");
+  //const textoHeader = crearTexto("Welcome", "textoHeader");
   //sectionHeader.appendChild(textoHeader);
 
   const imgnav = document.createElement("img");
@@ -35,9 +35,9 @@ function crearHeader() {
   const nav = document.createElement("nav");
   nav.classList.add("nav");
 
-  const botonSobreMi = crearBoton("Sobre mí", crearSobreMi);
-  const botonProyectos = crearBoton("Proyectos", crearProyectos);
-  const botonContacto = crearBoton("Contacto", crearContacto);
+  const botonSobreMi = crearBoton("About me", crearSobreMi);
+  const botonProyectos = crearBoton("Projects", crearProyectos);
+  const botonContacto = crearBoton("Contact", crearContacto);
   const botonHome = crearBoton("Home", crearInicio);
   sectionHeader.appendChild(imgnav);
   nav.appendChild(botonHome);
@@ -95,7 +95,7 @@ function crearSobreMi() {
   const sobreMi = document.createElement("section");
   sobreMi.classList.add("sobreMi");
 
-  const titulo = crearTexto("Sobre Mi","tituloSobreMiHeader");
+  const titulo = crearTexto("About me","tituloSobreMiHeader");
 
   sobreMi.appendChild(titulo);
 
@@ -190,7 +190,7 @@ function crearContacto() {
   contacto.classList.add("divContacto");
 
   const form = document.createElement("form");
- const titulo = crearTexto("Contacto","tituloSobreMiHeader");
+ const titulo = crearTexto("Contact","tituloSobreMiHeader");
 
   contacto.appendChild(titulo);
 
@@ -207,7 +207,7 @@ function crearContacto() {
 
   const labelNombre = document.createElement("label");
   labelNombre.setAttribute("for", "nombre");
-  labelNombre.innerText = "Nombre";
+  labelNombre.innerText = "Name";
 
   grupoNombre.appendChild(inputNombre);
   grupoNombre.appendChild(labelNombre);
@@ -224,7 +224,7 @@ function crearContacto() {
 
   const labelCorreo = document.createElement("label");
   labelCorreo.setAttribute("for", "correo");
-  labelCorreo.innerText = "Correo";
+  labelCorreo.innerText = "Email address";
 
   grupoCorreo.appendChild(inputCorreo);
   grupoCorreo.appendChild(labelCorreo);
@@ -241,7 +241,7 @@ function crearContacto() {
 
   const labelComentario = document.createElement("label");
   labelComentario.setAttribute("for", "comentario");
-  labelComentario.innerText = "Comentario";
+  labelComentario.innerText = "Comment";
 
   inputNombre.setAttribute("placeholder", "");
 inputCorreo.setAttribute("placeholder", " ");
@@ -254,7 +254,7 @@ textareaComentario.setAttribute("placeholder", " ");
   const botonEnviar = document.createElement("button");
   botonEnviar.setAttribute("type", "submit");
   botonEnviar.classList.add("botonEnviar");
-  botonEnviar.innerText = "Enviar";
+  botonEnviar.innerText = "Send";
 
  
   form.appendChild(grupoNombre);

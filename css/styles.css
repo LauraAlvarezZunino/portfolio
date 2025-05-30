@@ -186,7 +186,6 @@ height: 70px;
   line-height: 1.6;/*Significa que la altura de cada línea será 1.6 veces el tamaño de fuente actual.*/
   text-align: left;
 }
-
 .tituloSobreMiHeader {
   position: absolute;
   top: 10px;
@@ -194,11 +193,14 @@ height: 70px;
   font-size: 25px;
   color: whitesmoke;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  padding:0px 20px;
-  margin-bottom: 20px;
+  letter-spacing: 0.5px; 
+  padding: 0 20px;
+  margin-bottom: 30px; 
   font-weight: bold;
 }
+
+
+
 
 
 
@@ -242,8 +244,8 @@ height: 70px;
   backdrop-filter: blur(1px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); 
   background-color: rgba(255, 255, 255, 0.01); 
-  width: 380px;
-  height: 300px;
+  width: 360px;
+  height: 280px;
   padding: 15px;
   border-radius: 12px;
   text-align: center;
@@ -280,7 +282,7 @@ height: 70px;
 .input-group {
   position: relative;
   margin-bottom: 25px;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .floating-input {

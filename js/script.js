@@ -279,82 +279,100 @@ function crearContacto() {
   contacto.classList.add("divContacto");
 
   const form = document.createElement("form");
- const titulo = crearTexto("Contact","tituloSobreMiHeader");
+  form.setAttribute("id", "contact-form");
 
+  const titulo = crearTexto("Contact", "tituloSobreMiHeader");
   contacto.appendChild(titulo);
 
-
-  
+  // --- Campo Nombre ---
   const grupoNombre = document.createElement("div");
   grupoNombre.classList.add("input-group");
 
   const inputNombre = document.createElement("input");
-  inputNombre.setAttribute("type", "text");
-  inputNombre.setAttribute("id", "nombre");
-  inputNombre.setAttribute("name", "nombre");
+  inputNombre.type = "text";
+  inputNombre.id = "nombre";
+  inputNombre.name = "nombre";
+  inputNombre.placeholder = " ";
   inputNombre.classList.add("floating-input");
 
   const labelNombre = document.createElement("label");
   labelNombre.setAttribute("for", "nombre");
   labelNombre.innerText = "Name";
 
-  grupoNombre.appendChild(inputNombre);
-  grupoNombre.appendChild(labelNombre);
+  grupoNombre.append(inputNombre, labelNombre);
 
-
+  // --- Campo Correo ---
   const grupoCorreo = document.createElement("div");
   grupoCorreo.classList.add("input-group");
 
   const inputCorreo = document.createElement("input");
-  inputCorreo.setAttribute("type", "email");
-  inputCorreo.setAttribute("id", "correo");
-  inputCorreo.setAttribute("name", "correo");
+  inputCorreo.type = "email";
+  inputCorreo.id = "correo";
+  inputCorreo.name = "correo";
+  inputCorreo.placeholder = " ";
   inputCorreo.classList.add("floating-input");
 
   const labelCorreo = document.createElement("label");
   labelCorreo.setAttribute("for", "correo");
   labelCorreo.innerText = "Email address";
 
-  grupoCorreo.appendChild(inputCorreo);
-  grupoCorreo.appendChild(labelCorreo);
+  grupoCorreo.append(inputCorreo, labelCorreo);
 
-
-
+  // --- Campo Comentario ---
   const grupoComentario = document.createElement("div");
   grupoComentario.classList.add("input-group");
 
   const textareaComentario = document.createElement("textarea");
-  textareaComentario.setAttribute("id", "comentario");
-  textareaComentario.setAttribute("name", "comentario");
+  textareaComentario.id = "comentario";
+  textareaComentario.name = "comentario";
+  textareaComentario.placeholder = " ";
   textareaComentario.classList.add("floating-input");
 
   const labelComentario = document.createElement("label");
   labelComentario.setAttribute("for", "comentario");
   labelComentario.innerText = "Comment";
 
-  inputNombre.setAttribute("placeholder", "");
-inputCorreo.setAttribute("placeholder", " ");
-textareaComentario.setAttribute("placeholder", " ");
+  grupoComentario.append(textareaComentario, labelComentario);
 
-  grupoComentario.appendChild(textareaComentario);
-  grupoComentario.appendChild(labelComentario);
-
-
+  // --- Botón ---
   const botonEnviar = document.createElement("button");
-  botonEnviar.setAttribute("type", "submit");
+  botonEnviar.type = "submit";
   botonEnviar.classList.add("botonEnviar");
   botonEnviar.innerText = "Send";
 
- 
-  form.appendChild(grupoNombre);
-  form.appendChild(grupoCorreo);
-  form.appendChild(grupoComentario);
-  form.appendChild(botonEnviar);
+  // --- Mensaje de estado ---
+  const statusMsg = document.createElement("p");
+  statusMsg.id = "status";
+  statusMsg.classList.add("status-msg");
+
+  // --- Ensamble ---
+  form.append(grupoNombre, grupoCorreo, grupoComentario, botonEnviar, statusMsg);
   contacto.appendChild(form);
 
   const main = mainContent();
   main.innerHTML = "";
   main.appendChild(contacto);
+
+  // --- Evento de envío ---
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    statusMsg.textContent = "Sending message...";
+
+    emailjs
+      .send("service_ohfez7q", "template_lyqokiy", {
+        from_name: inputNombre.value,
+        from_email: inputCorreo.value,
+        message: textareaComentario.value,
+      })
+      .then(() => {
+        statusMsg.textContent = "Message sent successfully!";
+        form.reset();
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        statusMsg.textContent = "Failed to send message. Please try again later.";
+      });
+  });
 }
 
 

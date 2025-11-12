@@ -408,6 +408,13 @@ textarea.floating-input {
   background: rgba(28, 214, 206, 0.2);
   border-color: #1CD6CE;
 }
+.status-msg {
+  margin-top: 10px;
+  color: white;
+  text-align: center;
+  font-size: 14px;
+}
+
 /*------------------------------------------------------*/
 .imgInicio {
   width: 300px;

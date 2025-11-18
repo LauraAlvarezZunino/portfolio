@@ -63,10 +63,26 @@ function crearInicio() {
   const texto2 = crearTexto(" ", "textoInicio");
 
   const redes = document.createElement("div");
-  redes.classList.add("iconosSociales");
-  redes.appendChild(crearImagenConEnlace("https://cdn-icons-png.flaticon.com/512/300/300221.png", "https://www.google.com", "iconoSocial"));
-  redes.appendChild(crearImagenConEnlace("https://cdn-icons-png.flaticon.com/512/2111/2111463.png", "https://www.instagram.com", "iconoSocial"));
-  redes.appendChild(crearImagenConEnlace("https://cdn-icons-png.flaticon.com/512/174/174857.png", "https://www.linkedin.com", "iconoSocial"));
+redes.classList.add("iconosSociales");
+
+
+
+redes.appendChild(
+  crearImagenConEnlace(
+    "https://cdn-icons-png.flaticon.com/512/733/733553.png",  
+    "https://github.com/LauraAlvarezZunino",                           
+    "iconoSocial"
+  )
+);
+
+
+redes.appendChild(
+  crearImagenConEnlace(
+    "https://cdn-icons-png.flaticon.com/512/174/174857.png",
+    "https://www.linkedin.com",
+    "iconoSocial"
+  )
+);
 
   contenedorTexto.appendChild(texto1);
   contenedorTexto.appendChild(texto2);
@@ -74,7 +90,7 @@ function crearInicio() {
 
   const img = document.createElement("img");
   img.classList.add("imgInicio");
-  img.src = './img/perfil.avif';
+  img.src = './img/perfil.jpg';
   img.alt = 'Foto de perfil';
 
   const contenedorImagen = document.createElement("div");
@@ -246,8 +262,8 @@ function crearProyectos() {
 
   const cardUno = crearCardConContenido(
 
-    "Proyacto", 
-    "./img/room.png",
+    "La Gran Ocasion", 
+    "img/laGranOcasion.jpg",
     "cardproyecto" 
   );
   const cardDos = crearCardConContenido(

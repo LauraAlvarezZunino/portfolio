@@ -63,10 +63,26 @@ function crearInicio() {
   const texto2 = crearTexto(" ", "textoInicio");
 
   const redes = document.createElement("div");
-  redes.classList.add("iconosSociales");
-  redes.appendChild(crearImagenConEnlace("https://cdn-icons-png.flaticon.com/512/300/300221.png", "https://www.google.com", "iconoSocial"));
-  redes.appendChild(crearImagenConEnlace("https://cdn-icons-png.flaticon.com/512/2111/2111463.png", "https://www.instagram.com", "iconoSocial"));
-  redes.appendChild(crearImagenConEnlace("https://cdn-icons-png.flaticon.com/512/174/174857.png", "https://www.linkedin.com", "iconoSocial"));
+redes.classList.add("iconosSociales");
+
+
+
+redes.appendChild(
+  crearImagenConEnlace(
+    "https://cdn-icons-png.flaticon.com/512/733/733553.png",  
+    "https://github.com/LauraAlvarezZunino",                           
+    "iconoSocial"
+  )
+);
+
+
+redes.appendChild(
+  crearImagenConEnlace(
+    "https://cdn-icons-png.flaticon.com/512/174/174857.png",
+    "https://www.linkedin.com",
+    "iconoSocial"
+  )
+);
 
   contenedorTexto.appendChild(texto1);
   contenedorTexto.appendChild(texto2);
@@ -74,7 +90,7 @@ function crearInicio() {
 
   const img = document.createElement("img");
   img.classList.add("imgInicio");
-  img.src = './img/perfil.avif';
+  img.src = './img/perfil.jpg';
   img.alt = 'Foto de perfil';
 
   const contenedorImagen = document.createElement("div");
@@ -88,67 +104,156 @@ function crearInicio() {
 }
 
 
-
 function crearSobreMi() {
   const main = mainContent();
 
   const sobreMi = document.createElement("section");
   sobreMi.classList.add("sobreMi");
 
-  const titulo = crearTexto("About me","tituloSobreMiHeader");
-
+  const titulo = crearTexto("About Me", "tituloSobreMiHeader");
   sobreMi.appendChild(titulo);
 
-
+  // --- Imagen ---
   const contenedorImg = document.createElement("div");
   contenedorImg.classList.add("sectionSobremiDos");
 
   const img = document.createElement("img");
   img.classList.add("imgSobreMi");
-  img.src = './img/sobremi.jpg';
-
+  img.src = "./img/sobremi.jpg";
+  img.alt = "Profile picture - Laura Álvarez Zunino";
   contenedorImg.appendChild(img);
 
-
+  // --- Contenido principal ---
   const contenedorContenido = document.createElement("div");
   contenedorContenido.classList.add("contenidoSobreMi");
 
-  const texto = crearTexto(
-    "I am a dedicated and empathetic professional with strong skills in pediatric and neonatal care. Over the years, I have gained significant experience working in high-pressure environments, solving complex problems, and collaborating effectively with multidisciplinary teams to provide high-quality patient care. Currently, I am expanding my knowledge in technology by studying Application Development and Programming, focusing on the integration of innovative solutions to healthcare.",
-    "parrafoSobreMi"
-  );
-  contenedorContenido.appendChild(texto);
+  const parrafo1 = document.createElement("p");
+  parrafo1.textContent =
+    "I am a multidisciplinary professional with a Bachelor’s Degree in Nursing and a strong passion for technology, innovation, and continuous learning.";
 
+  const parrafo2 = document.createElement("p");
+  parrafo2.textContent =
+    "Currently, I am studying a Technical Degree in Analysis, Development, and Application Programming, where I apply analytical thinking, creativity, and problem-solving skills to software projects.";
+
+  const parrafo3 = document.createElement("p");
+  parrafo3.textContent =
+    "My background in healthcare has strengthened my empathy, teamwork, and communication abilities, which I now combine with my growing technical expertise in programming, database management, and UX/UI design. I enjoy developing solutions that improve user experiences and contribute to meaningful, people-centered projects.";
+
+  contenedorContenido.append(parrafo1, parrafo2, parrafo3);
+
+  // --- Línea divisoria ---
   const linea = document.createElement("hr");
   linea.classList.add("lineaHorizontal");
   contenedorContenido.appendChild(linea);
 
+  // --- HABILIDADES (Hard & Soft Skills) ---
+  const habilidadesContainer = document.createElement("div");
+  habilidadesContainer.classList.add("habilidadesSobreMi");
+
+  const tituloHabilidades = document.createElement("h3");
+  tituloHabilidades.textContent = "Skills";
+
+  const hardSkillsTitle = document.createElement("h4");
+  hardSkillsTitle.textContent = "Technical (Hard) Skills";
+
+  const listaHard = document.createElement("ul");
+  const hardItems = [
+    "Languages: JavaScript, PHP",
+    "Frameworks / Libraries: React, Express",
+    "Databases: SQL, NoSQL, database modeling, DDL and DML statements",
+    "Frontend: HTML, CSS, Bootstrap, Material Design",
+    "UX/UI Design: Figma, WordPress, usability principles",
+    "Tools: Git, GitHub, VS Code, DBeaver, Postman, JSON, XML, RESTful API design, Cisco Packet Tracer, Vim, Canva, terminal basics",
+    "Methodologies: Scrum, Agile teamwork, Waterfall model",
+    "Concepts: Structured programming, OOP, fundamentals of TDD"
+  ];
+
+  hardItems.forEach(skill => {
+    const li = document.createElement("li");
+    li.textContent = skill;
+    listaHard.appendChild(li);
+  });
+
+  const softSkillsTitle = document.createElement("h4");
+  softSkillsTitle.textContent = "Soft Skills";
+
+  const listaSoft = document.createElement("ul");
+  const softItems = [
+    "Communication and empathy",
+    "Adaptability and critical thinking",
+    "Teamwork and collaboration",
+    "Problem-solving and creativity",
+    "Attention to detail and organization"
+  ];
+
+  softItems.forEach(skill => {
+    const li = document.createElement("li");
+    li.textContent = skill;
+    listaSoft.appendChild(li);
+  });
+
+  habilidadesContainer.append(
+    tituloHabilidades,
+    hardSkillsTitle,
+    listaHard,
+    softSkillsTitle,
+    listaSoft
+  );
+
+  contenedorContenido.appendChild(habilidadesContainer);
+
+  // --- Línea divisoria antes de Experiencia/Educación ---
+  const linea2 = document.createElement("hr");
+  linea2.classList.add("lineaHorizontal");
+  contenedorContenido.appendChild(linea2);
+
+  // --- Columnas: Experiencia y Estudios ---
   const columnas = document.createElement("div");
   columnas.classList.add("columnas");
 
-  const experiencia = document.createElement("ul");
-  experiencia.innerText = `Experience
-  🧸 Pediatric Intensive Care Unit Nurse
-    🚼 Neonatal Nurse
-    🩺 Home Healthcare Nurse
-  `;
+  // EXPERIENCIA
+  const experiencia = document.createElement("div");
+  const tituloExp = document.createElement("h3");
+  tituloExp.textContent = "Experience";
+  const listaExp = document.createElement("ul");
 
-  const estudios = document.createElement("ul");
-  estudios.innerText = `Qualifications
-    📚 Bachelor of Nursing
-    💻 Studying Technician in analysis, administration and application programming
-    📖 Courses in JS, HTML, CSS
-  `;
+  const itemExp1 = document.createElement("li");
+  itemExp1.textContent =
+    "Nursing Professional — Tandil Health System (2017–Present): Experience in patient care, multidisciplinary teamwork, and clinical process management.";
+  const itemExp2 = document.createElement("li");
+  itemExp2.textContent =
+    "Academic & Personal Projects — Web Development: Development of web applications, REST APIs, and database integration using JavaScript, Node.js, PHP, and MySQL.";
 
-  columnas.appendChild(experiencia);
-  columnas.appendChild(estudios);
+  listaExp.append(itemExp1, itemExp2);
+  experiencia.append(tituloExp, listaExp);
+
+  // ESTUDIOS
+  const estudios = document.createElement("div");
+  const tituloEdu = document.createElement("h3");
+  tituloEdu.textContent = "Qualifications";
+  const listaEdu = document.createElement("ul");
+
+  const itemEdu1 = document.createElement("li");
+  itemEdu1.textContent =
+    "Bachelor’s Degree in Nursing — National University of the Center of Buenos Aires Province (UNICEN).";
+  const itemEdu2 = document.createElement("li");
+  itemEdu2.textContent =
+    "Technical Degree in Analysis, Development and Application Programming — ISFDyT No. 166, Tandil (Expected graduation: 2025).";
+  const itemEdu3 = document.createElement("li");
+  itemEdu3.textContent =
+    "Complementary Training: UX/UI Design (Codo a Codo, 2023), Free Software Installation Festival (FLISoL 2024).";
+
+  listaEdu.append(itemEdu1, itemEdu2, itemEdu3);
+  estudios.append(tituloEdu, listaEdu);
+
+  columnas.append(experiencia, estudios);
   contenedorContenido.appendChild(columnas);
 
-  sobreMi.appendChild(contenedorImg);
-  sobreMi.appendChild(contenedorContenido);
-
+  // --- Ensamble final ---
+  sobreMi.append(contenedorImg, contenedorContenido);
   main.appendChild(sobreMi);
 }
+
 
 
 function crearProyectos() {
@@ -157,8 +262,8 @@ function crearProyectos() {
 
   const cardUno = crearCardConContenido(
 
-    "Proyacto", 
-    "./img/room.png",
+    "La Gran Ocasion", 
+    "img/laGranOcasion.jpg",
     "cardproyecto" 
   );
   const cardDos = crearCardConContenido(
@@ -190,82 +295,100 @@ function crearContacto() {
   contacto.classList.add("divContacto");
 
   const form = document.createElement("form");
- const titulo = crearTexto("Contact","tituloSobreMiHeader");
+  form.setAttribute("id", "contact-form");
 
+  const titulo = crearTexto("Contact", "tituloSobreMiHeader");
   contacto.appendChild(titulo);
 
-
-  
+  // --- Campo Nombre ---
   const grupoNombre = document.createElement("div");
   grupoNombre.classList.add("input-group");
 
   const inputNombre = document.createElement("input");
-  inputNombre.setAttribute("type", "text");
-  inputNombre.setAttribute("id", "nombre");
-  inputNombre.setAttribute("name", "nombre");
+  inputNombre.type = "text";
+  inputNombre.id = "nombre";
+  inputNombre.name = "nombre";
+  inputNombre.placeholder = " ";
   inputNombre.classList.add("floating-input");
 
   const labelNombre = document.createElement("label");
   labelNombre.setAttribute("for", "nombre");
   labelNombre.innerText = "Name";
 
-  grupoNombre.appendChild(inputNombre);
-  grupoNombre.appendChild(labelNombre);
+  grupoNombre.append(inputNombre, labelNombre);
 
-
+  // --- Campo Correo ---
   const grupoCorreo = document.createElement("div");
   grupoCorreo.classList.add("input-group");
 
   const inputCorreo = document.createElement("input");
-  inputCorreo.setAttribute("type", "email");
-  inputCorreo.setAttribute("id", "correo");
-  inputCorreo.setAttribute("name", "correo");
+  inputCorreo.type = "email";
+  inputCorreo.id = "correo";
+  inputCorreo.name = "correo";
+  inputCorreo.placeholder = " ";
   inputCorreo.classList.add("floating-input");
 
   const labelCorreo = document.createElement("label");
   labelCorreo.setAttribute("for", "correo");
   labelCorreo.innerText = "Email address";
 
-  grupoCorreo.appendChild(inputCorreo);
-  grupoCorreo.appendChild(labelCorreo);
+  grupoCorreo.append(inputCorreo, labelCorreo);
 
-
-
+  // --- Campo Comentario ---
   const grupoComentario = document.createElement("div");
   grupoComentario.classList.add("input-group");
 
   const textareaComentario = document.createElement("textarea");
-  textareaComentario.setAttribute("id", "comentario");
-  textareaComentario.setAttribute("name", "comentario");
+  textareaComentario.id = "comentario";
+  textareaComentario.name = "comentario";
+  textareaComentario.placeholder = " ";
   textareaComentario.classList.add("floating-input");
 
   const labelComentario = document.createElement("label");
   labelComentario.setAttribute("for", "comentario");
   labelComentario.innerText = "Comment";
 
-  inputNombre.setAttribute("placeholder", "");
-inputCorreo.setAttribute("placeholder", " ");
-textareaComentario.setAttribute("placeholder", " ");
+  grupoComentario.append(textareaComentario, labelComentario);
 
-  grupoComentario.appendChild(textareaComentario);
-  grupoComentario.appendChild(labelComentario);
-
-
+  // --- Botón ---
   const botonEnviar = document.createElement("button");
-  botonEnviar.setAttribute("type", "submit");
+  botonEnviar.type = "submit";
   botonEnviar.classList.add("botonEnviar");
   botonEnviar.innerText = "Send";
 
- 
-  form.appendChild(grupoNombre);
-  form.appendChild(grupoCorreo);
-  form.appendChild(grupoComentario);
-  form.appendChild(botonEnviar);
+  // --- Mensaje de estado ---
+  const statusMsg = document.createElement("p");
+  statusMsg.id = "status";
+  statusMsg.classList.add("status-msg");
+
+  // --- Ensamble ---
+  form.append(grupoNombre, grupoCorreo, grupoComentario, botonEnviar, statusMsg);
   contacto.appendChild(form);
 
   const main = mainContent();
   main.innerHTML = "";
   main.appendChild(contacto);
+
+  // --- Evento de envío ---
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    statusMsg.textContent = "Sending message...";
+
+    emailjs
+      .send("service_ohfez7q", "template_lyqokiy", {
+        from_name: inputNombre.value,
+        from_email: inputCorreo.value,
+        message: textareaComentario.value,
+      })
+      .then(() => {
+        statusMsg.textContent = "Message sent successfully!";
+        form.reset();
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        statusMsg.textContent = "Failed to send message. Please try again later.";
+      });
+  });
 }
 
 

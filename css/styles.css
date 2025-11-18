@@ -19,7 +19,7 @@
   top: 0;
   width: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(25, 25, 37, 0.8);
   padding: 10px 20px;
   display: flex;
   justify-content: space-between; 
@@ -139,95 +139,148 @@ height: 70px;
   transform: scale(1.2);
 }
 
-/*-----------------------------------------------------------------------*/
+/* ----------------------------------------------------------------------- */
 /* SOBRE MÍ */
 .sobreMi {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  gap: 50px;
-  width: 100%;
-  padding: 20px 20px;
+  align-items: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
-  border-radius: 20px;
+  gap: 40px;
+  width: 100%;
+  padding: 40px 20px;
+  border-radius: 5px;
   transition: transform 0.3s ease;
   backdrop-filter: blur(1px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); 
-  background-color: rgba(255, 255, 255, 0.01); 
-
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  background-color: rgba(255, 255, 255, 0.02);
 }
 
-
-.imgInicio, .imgSobreMi {
+.imgSobreMi {
   flex-shrink: 0;
-  width: 360px;
-  height: 360px;
+  width: 260px;
+  height: 260px;
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid #ffffff22;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
- margin-right:20px;
 }
 
-.imgInicio:hover {
-  transform: scale(1.07);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+.imgSobreMi:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.tituloSobreMiHeader {
+  width: 100%;
+  text-align: center;
+  font-size: 28px;
+  color: whitesmoke;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  font-weight: bold;
 }
 
 .contenidoSobreMi {
   flex: 1;
   min-width: 300px;
-  max-width: 600px;
-  padding: 20px;
+  max-width: 650px;
+  padding: 10px 20px;
   color: #ffffff;
   font-size: 16px;
-  line-height: 1.6;/*Significa que la altura de cada línea será 1.6 veces el tamaño de fuente actual.*/
+  line-height: 1.7;
   text-align: left;
 }
-.tituloSobreMiHeader {
-  position: absolute;
-  top: 10px;
-  left: 0;
-  font-size: 25px;
-  color: whitesmoke;
-  text-transform: uppercase;
-  letter-spacing: 0.5px; 
-  padding: 0 20px;
-  margin-bottom: 30px; 
-  font-weight: bold;
+
+.parrafoSobreMi {
+  margin-bottom: 20px;
 }
-
-
-
-
-
 
 .lineaHorizontal {
   border: none;
-  border-top: 2px solid #1CD6CE;
-  margin: 20px 0;
-  width: 80%;
-  align-items: center;
-
+  border-top: 1.5px solid #c5c7c7;
+  margin: 25px 0;
+  width: 100%;
 }
 
+/* ----------------------------------------------------------------------- */
+/* SECCIÓN DE HABILIDADES */
+.habilidadesSobreMi {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
 
+.habilidadesSobreMi h3 {
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 18px;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+.habilidadesSobreMi h4 {
+  color: #d8d8d8;
+  font-size: 16px;
+  margin-top: 15px;
+  margin-bottom: 8px;
+}
+
+.habilidadesSobreMi ul {
+  list-style-type: disc;
+  margin-left: 25px;
+  margin-bottom: 10px;
+}
+
+.habilidadesSobreMi ul li {
+  color: #ffffff;
+  margin-bottom: 6px;
+  line-height: 1.6;
+}
+
+/* ----------------------------------------------------------------------- */
+/* COLUMNAS DE EXPERIENCIA Y EDUCACIÓN */
 .columnas {
   display: flex;
-  justify-content: space-between;
-  gap: 20px;
+  flex-direction: column;
+  gap: 25px;
+}
+
+@media (min-width: 768px) {
+  .columnas {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.columnas div {
+  flex: 1;
+  padding: 0 10px;
+}
+
+.columnas h3 {
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-size: 17px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .columnas ul {
-  flex: 1;
-  list-style: none;
-  padding: 0 20px;
-  position: relative;
-  color:whitesmoke;
+  list-style-type: disc;
+  margin-left: 25px;
+  color: whitesmoke;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
+.columnas ul li {
+  margin-bottom: 8px;
+}
+
+/* ----------------------------------------------------------------------- */
 
 /*------------------------------ PROYECTOS------------------------- */
 .divproyectos {
@@ -355,7 +408,31 @@ textarea.floating-input {
   background: rgba(28, 214, 206, 0.2);
   border-color: #1CD6CE;
 }
+.status-msg {
+  margin-top: 10px;
+  color: white;
+  text-align: center;
+  font-size: 14px;
+}
+
 /*------------------------------------------------------*/
+.imgInicio {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #ffffff22;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.imgInicio:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+
+
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: #212130;
@@ -370,7 +447,7 @@ body {
     border-radius: 1000% 1000% 0 0;
     position: fixed;
     width: 200%;
-    height: 8em;
+    height: 5em;
     animation: wave 10s -3s linear infinite;
     transform: translate3d(0, 0, 0);
     opacity: 0.5;

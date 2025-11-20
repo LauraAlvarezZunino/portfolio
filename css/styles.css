@@ -282,27 +282,31 @@ height: 70px;
 
 /* ----------------------------------------------------------------------- */
 
-/*------------------------------ PROYECTOS------------------------- */
+/*------------------------------ PROYECTOS ------------------------- */
 .divproyectos {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 30px;
+  padding: 20px;
 }
-.contenedorImagen{
-  width: 360px;
-  height: 360px;
-}
+
 .cardproyecto {
-  backdrop-filter: blur(1px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); 
-  background-color: rgba(255, 255, 255, 0.01); 
+  position: relative; 
   width: 360px;
   height: 280px;
   padding: 15px;
   border-radius: 12px;
   text-align: center;
+  
+ 
+  backdrop-filter: blur(1px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); 
+  background-color: rgba(255, 255, 255, 0.05); 
+  overflow: hidden;
+  
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .cardproyecto:hover {
@@ -310,14 +314,85 @@ height: 70px;
 }
 
 .imagenCard {
-  width: 300px;
+  width: 100%; 
   height: 175px;
   border-radius: 8px;
+  object-fit: cover;
+  display: block;
+    position: relative;
+  z-index: 1;
 }
 
 .textoCard {
-  margin-top: 10px;
+  margin-top: 15px;
   font-weight: 500;
+  color: whitesmoke;
+  font-size: 1.2rem;
+    position: relative;
+  z-index: 1;
+}
+.detalleProyecto {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  background: rgba(33, 33, 48, 0.95);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;   
+  padding: 20px;
+}
+
+.cardproyecto:hover .detalleProyecto {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.overlay-content {
+  flex-grow: 1;        
+  overflow-y: auto;    
+}
+
+/* Descripción */
+.descripcionProyecto {
+  font-size: 15px;
+  color: #e0e0e0;
+  line-height: 1.5;
+  margin-top:10px;
+}
+
+/* Contenedor del botón */
+.overlay-button {
+  text-align: center;
+  margin-top: 20px; 
+  margin-bottom:10px;
+}
+
+/* Botón */
+.btnRepo {
+  padding: 10px 20px;
+  border: 2px solid whitesmoke;
+  border-radius: 6px;
+
+  color: whitesmoke;
+  text-decoration: none;
+  font-weight: bold;
+
+  transition: all 0.3s ease;
+}
+
+.btnRepo:hover {
+  background-color: whitesmoke;
+  color: #181824;
 }
 
 /*---------------------------- CONTACTO ---------------------*/
@@ -352,7 +427,7 @@ height: 70px;
 }
 
 .floating-input:focus {
-  border: 2px solid #1CD6CE;
+  border: 2px solid whitesmoke;
 }
 
 .input-group label {
@@ -378,7 +453,7 @@ El input no está vacío (:not(:placeholder-shown)*/
   padding: 0 5px;
   background:  rgba(33, 33, 48,0.8); 
   opacity: 1;
-  color: #1CD6CE;
+  color: whitesmoke;
 }
 #comentario{
   align-content: center;
@@ -401,12 +476,15 @@ textarea.floating-input {
   font-size: 18px;
   cursor: pointer;
   transition: all 0.3s ease;
+   text-decoration: none;
+  font-weight: bold;
 }
 
 .botonEnviar:hover {
  
-  background: rgba(28, 214, 206, 0.2);
-  border-color: #1CD6CE;
+  background: whitesmoke;
+  border-color: whitesmoke;
+  color:#181824
 }
 .status-msg {
   margin-top: 10px;
@@ -522,6 +600,8 @@ body {
 
 /* ---------------- RESPONSIVE (Móvil) ---------------- */
 @media (max-width: 768px) {
+
+  /* --- MENÚ HAMBURGUESA --- */
   .hamburger {
     display: flex;
   }
@@ -529,43 +609,47 @@ body {
   .nav {
     position: fixed;
     top: 0;
-    right: -100%; 
-    width: 70%; 
+    right: -100%;
+    width: 70%;
     height: 100vh;
     background-color: #181824;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 30px;
-    box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+    transition: right 0.3s ease;
   }
 
   .nav.active {
-    right: 0; 
+    right: 0;
+  }
 
-  .tituloInicio, 
+  /* --- INICIO --- */
+  .tituloInicio,
   .textoInicio::after {
     font-size: 2.5rem;
     text-align: center;
   }
 
   .inicio {
-    flex-direction: column-reverse; 
+    flex-direction: column-reverse;
     padding: 20px;
     gap: 30px;
   }
+
   .contenedorImagen {
-    width: 100%;     
-    height: auto;      
-    justify-content: center; 
-    margin-top: 20px; 
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    margin-top: 20px;
   }
 
   .imgInicio {
     width: 250px;
     height: 250px;
   }
-}
+
   .sectionInicio {
     display: flex;
     flex-direction: column;
@@ -575,6 +659,35 @@ body {
   .divContacto {
     width: 100%;
     padding: 15px;
+  }
+
+  /* --- PROJECT CARDS RESPONSIVE --- */
+  .divproyectos {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .cardproyecto {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    padding-bottom: 20px;
+    margin: 0 auto;
+  }
+
+  .imagenCard {
+    height: 160px;
+  }
+
+  .textoCard {
+    font-size: 1rem;
+  }
+
+  .descripcionProyecto {
+    font-size: 14px;
   }
 }
 

@@ -26,7 +26,7 @@ function crearHeader() {
 
   const imgnav = document.createElement("img");
   imgnav.classList.add("imgnav");
-  imgnav.src = './img/imgnav.png';
+  imgnav.src = 'img/logo.png';
   imgnav.alt = 'Logo';
   
   // Hacemos que el logo también lleve al inicio al hacer click
@@ -91,7 +91,7 @@ function crearInicio() {
   const contenedorTexto = document.createElement("div");
   contenedorTexto.classList.add("sectionInicio");
 
-  const texto1 = crearTexto("Hi! I'm Laura Alvarez!", "tituloInicio");
+  const texto1 = crearTexto("Hi! I'm Laura Alvarez Zunino!", "tituloInicio");
   const texto2 = crearTexto(" ", "textoInicio");
 
   const redes = document.createElement("div");
@@ -123,7 +123,7 @@ redes.appendChild(
   const img = document.createElement("img");
   img.classList.add("imgInicio");
   img.src = './img/perfilpic.jpg';
-  img.alt = 'Foto de perfil';
+  img.alt = 'Profile picture';
 
   const contenedorImagen = document.createElement("div");
   contenedorImagen.classList.add("contenedorImagen");
@@ -294,7 +294,7 @@ function crearProyectos() {
     "La Gran Ocasión", 
     "img/laGranOcasion.jpg", 
     "cardproyecto",
-    "Plataforma web desarrollada para la Biblioteca Julio Cortazar de la Escuela Nacional 'Ernesto Sábato',con el objetivo de fomentar la lectura, la crítica literaria y la participación comunitaria entre alumnos y docentes.", 
+    "Web platform created for the Julio Cortázar Library to promote reading, literary critique, and community engagement among students and teachers.",
     "https://github.com/TurcoDev/sababook-front"
   );
 
@@ -302,7 +302,7 @@ function crearProyectos() {
     "RoomService", 
     "./img/room.png",
     "cardproyecto",
-    "Una APIBackend-Only desarrollada para la gestión de servicios de un hotel (habitaciones, reservas, notificaciones y usuarios). Esta aplicación implementa el patrón Modelo-Vista-Controlador y la Programación Orientada a Objetos en PHP.", 
+    "Backend-only API for managing hotel services, built with MVC architecture and Object-Oriented PHP",
     "https://github.com/LauraAlvarezZunino/RoomService2.0"
   );
 
@@ -310,7 +310,7 @@ function crearProyectos() {
     "Viví Tandil", 
     "./img/vivitandil.png",
     "cardproyecto",
-    "Proyecto Final de Diseño UX UI, incluye analisis del entorno, creacion de identidad visual,y de pantallas mobile para una api de alquiler de propiedades en la ciudad de Tandil", 
+    "Final UX/UI Design project featuring environment analysis, visual identity development, and mobile UI design for a property rental app in Tandil.", 
     "https://docs.google.com/presentation/d/1o8b2gC95aXJI5-YxBjMYmaSAYNclue2_1LFWx-mH0Xo/edit?usp=sharing"
   );
 
@@ -355,7 +355,7 @@ function crearCardConContenido(titulo, imagenURL, claseCard, descripcion, linkRe
   const btnLink = document.createElement("a");
   btnLink.href = linkRepo || "#";
   btnLink.target = "_blank";
-  btnLink.innerText = "Ver Más Detalles";
+  btnLink.innerText = "Learn more";
   btnLink.classList.add("btnRepo");
 
   buttonWrapper.appendChild(btnLink);

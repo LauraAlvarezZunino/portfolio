@@ -190,7 +190,7 @@ function crearSobreMi() {
 
   const listaHard = document.createElement("ul");
   const hardItems = [
-    "Languages: JavaScript, PHP",
+    "Programming Languages: JavaScript, PHP",
     "Frameworks / Libraries: React, Express",
     "Databases: SQL, NoSQL, database modeling, DDL and DML statements",
     "Frontend: HTML, CSS, Bootstrap, Material Design",
@@ -198,7 +198,7 @@ function crearSobreMi() {
     "Tools: Git, GitHub, VS Code, DBeaver, Postman, JSON, XML, RESTful API design, Cisco Packet Tracer, Vim, Canva, terminal basics",
     "Methodologies: Scrum, Agile teamwork, Waterfall model",
     "Concepts: Structured programming, OOP, fundamentals of TDD",
-    "Languages: English A1 (beginner)"
+    "Languages: Spanish (Native), English A1 (beginner)"
   ];
 
   hardItems.forEach(skill => {

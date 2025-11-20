@@ -252,7 +252,7 @@ function crearSobreMi() {
 
   const itemExp1 = document.createElement("li");
   itemExp1.textContent =
-    "Nursing Professional — Tandil Health System (2017–Present): Experience in patient care, multidisciplinary teamwork, and clinical process management.";
+    "Nursing Professional — Tandil Health System (2014–Present): Experience in patient care, multidisciplinary teamwork, and clinical process management.";
   const itemExp2 = document.createElement("li");
   itemExp2.textContent =
     "Academic & Personal Projects — Web Development: Development of web applications, REST APIs, and database integration using JavaScript, Node.js, PHP, and MySQL.";
@@ -282,45 +282,94 @@ function crearSobreMi() {
   columnas.append(experiencia, estudios);
   contenedorContenido.appendChild(columnas);
 
-  // --- Ensamble final ---
   sobreMi.append(contenedorImg, contenedorContenido);
   main.appendChild(sobreMi);
 }
-
-
 
 function crearProyectos() {
   const proyectos = document.createElement("div");
   proyectos.classList.add("divproyectos");
 
   const cardUno = crearCardConContenido(
-
-    "La Gran Ocasion", 
-    "img/laGranOcasion.jpg",
-    "cardproyecto" 
+    "La Gran Ocasión", 
+    "img/laGranOcasion.jpg", 
+    "cardproyecto",
+    "Plataforma web desarrollada para la Biblioteca Julio Cortazar de la Escuela Nacional 'Ernesto Sábato',con el objetivo de fomentar la lectura, la crítica literaria y la participación comunitaria entre alumnos y docentes.", 
+    "https://github.com/TurcoDev/sababook-front"
   );
-  const cardDos = crearCardConContenido(
 
+  const cardDos = crearCardConContenido(
     "RoomService", 
     "./img/room.png",
-    "cardproyecto" 
+    "cardproyecto",
+    "Una APIBackend-Only desarrollada para la gestión de servicios de un hotel (habitaciones, reservas, notificaciones y usuarios). Esta aplicación implementa el patrón Modelo-Vista-Controlador y la Programación Orientada a Objetos en PHP.", 
+    "https://github.com/LauraAlvarezZunino/RoomService2.0"
   );
 
   const cardTres = crearCardConContenido(
-
-    "Vivi Tandil", 
+    "Viví Tandil", 
     "./img/vivitandil.png",
-    "cardproyecto" 
+    "cardproyecto",
+    "Proyecto Final de Diseño UX UI, incluye analisis del entorno, creacion de identidad visual,y de pantallas mobile para una api de alquiler de propiedades en la ciudad de Tandil", 
+    "https://docs.google.com/presentation/d/1o8b2gC95aXJI5-YxBjMYmaSAYNclue2_1LFWx-mH0Xo/edit?usp=sharing"
   );
 
   proyectos.appendChild(cardUno);
   proyectos.appendChild(cardDos);
   proyectos.appendChild(cardTres);
 
-
   const main = mainContent();
-  main.innerText = "";
+  main.innerHTML = ""; 
   main.appendChild(proyectos);
+}
+
+function crearCardConContenido(titulo, imagenURL, claseCard, descripcion, linkRepo) {
+  const card = document.createElement("div");
+  card.classList.add(claseCard);
+
+  const img = document.createElement("img");
+  img.src = imagenURL;
+  img.alt = "Imagen del proyecto";
+  img.classList.add("imagenCard");
+
+  const parrafo = crearTexto(titulo, "textoCard");
+
+  // ========= OVERLAY ==========
+  const overlay = document.createElement("div");
+  overlay.classList.add("detalleProyecto");
+
+  // Contenedor del texto (scroll si es largo)
+  const content = document.createElement("div");
+  content.classList.add("overlay-content");
+
+  const textoDesc = document.createElement("p");
+  textoDesc.innerText = descripcion || "Descripción próximamente...";
+  textoDesc.classList.add("descripcionProyecto");
+
+  content.appendChild(textoDesc);
+
+  // Contenedor del botón (siempre abajo)
+  const buttonWrapper = document.createElement("div");
+  buttonWrapper.classList.add("overlay-button");
+
+  const btnLink = document.createElement("a");
+  btnLink.href = linkRepo || "#";
+  btnLink.target = "_blank";
+  btnLink.innerText = "Ver Más Detalles";
+  btnLink.classList.add("btnRepo");
+
+  buttonWrapper.appendChild(btnLink);
+
+  // Agrego al overlay
+  overlay.appendChild(content);
+  overlay.appendChild(buttonWrapper);
+
+  // Agrego al card
+  card.appendChild(img);
+  card.appendChild(parrafo);
+  card.appendChild(overlay);
+
+  return card;
 }
 
 function crearContacto() {
@@ -432,28 +481,11 @@ function crearTexto(texto, nombreClase) {
   return parrafo;
 }
 
-function crearCardConContenido(texto, imagenURL, claseCard) {
-  const card = document.createElement("div");
-  card.classList.add(claseCard);
-
-  const img = document.createElement("img");
-  img.src = imagenURL;
-  img.alt = "Imagen del proyecto";
-  img.classList.add("imagenCard");
-
-  const parrafo = crearTexto(texto, "textoCard");
-
-  card.appendChild(img);
-  card.appendChild(parrafo);
-
-  return card;
-}
-
 
 
 
 function crearBoton(texto, cuandoCLick) {
-  const button = document.createElement("button");
+  const button = document.createElement("a");
   button.innerText = texto;
   button.classList.add("botones");
   button.addEventListener("click", cuandoCLick);

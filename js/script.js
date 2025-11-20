@@ -122,7 +122,7 @@ redes.appendChild(
 
   const img = document.createElement("img");
   img.classList.add("imgInicio");
-  img.src = './img/perfil.jpg';
+  img.src = './img/perfilpic.jpg';
   img.alt = 'Foto de perfil';
 
   const contenedorImagen = document.createElement("div");

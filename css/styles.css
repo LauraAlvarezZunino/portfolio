@@ -426,6 +426,13 @@ textarea.floating-input {
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
+.contenedorImagen {
+  width: 360px; 
+  height: 360px;
+  display: flex;
+  justify-content: flex-end; 
+  align-items: center;       
+}
 .imgInicio:hover {
   transform: scale(1.05);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
@@ -439,7 +446,136 @@ body {
   background-size: 400% 400%;
   background-attachment: fixed;
   color: white;
-  overflow-x: hidden; /* Mejor evitar scroll horizontal */
+  overflow-x: hidden; 
+}
+
+
+.main {
+  padding: 120px 20px 40px 20px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/*---------------- HEADER Y NAV --------------- */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Importante para que esté sobre todo */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  background-color: rgba(25, 25, 37, 0.95); 
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1001; /* Para que el logo quede sobre el menú desplegable */
+}
+
+/* Estilos base del NAV (Escritorio) */
+.nav {
+  display: flex;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+/* --- ESTILOS DEL BOTÓN HAMBURGUESA --- */
+.hamburger {
+  display: none; /* Oculto en escritorio */
+  cursor: pointer;
+  background: none;
+  border: none;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 1001;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: whitesmoke;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Animación del botón X cuando está activo */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
+/* ---------------- RESPONSIVE (Móvil) ---------------- */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -100%; 
+    width: 70%; 
+    height: 100vh;
+    background-color: #181824;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+  }
+
+  .nav.active {
+    right: 0; 
+
+  .tituloInicio, 
+  .textoInicio::after {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .inicio {
+    flex-direction: column-reverse; 
+    padding: 20px;
+    gap: 30px;
+  }
+  .contenedorImagen {
+    width: 100%;     
+    height: auto;      
+    justify-content: center; 
+    margin-top: 20px; 
+  }
+
+  .imgInicio {
+    width: 250px;
+    height: 250px;
+  }
+}
+  .sectionInicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .divContacto {
+    width: 100%;
+    padding: 15px;
+  }
 }
 
 .wave {

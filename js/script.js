@@ -20,32 +20,64 @@ function crearHeader() {
   const header = document.createElement("header");
   header.classList.add("header");
 
+  // --- SECCIÓN LOGO ---
   const sectionHeader = document.createElement("section");
   sectionHeader.classList.add("sectionHeader");
-
-  //const textoHeader = crearTexto("Welcome", "textoHeader");
-  //sectionHeader.appendChild(textoHeader);
 
   const imgnav = document.createElement("img");
   imgnav.classList.add("imgnav");
   imgnav.src = './img/imgnav.png';
-  imgnav.alt = 'Foto de nav';
+  imgnav.alt = 'Logo';
+  
+  // Hacemos que el logo también lleve al inicio al hacer click
+  imgnav.style.cursor = "pointer";
+  imgnav.addEventListener("click", () => {
+      crearInicio();
+      cerrarMenu(); // Si el menú está abierto, lo cierra
+  });
 
+  sectionHeader.appendChild(imgnav);
 
+  // --- SECCIÓN NAV (Enlaces) ---
   const nav = document.createElement("nav");
   nav.classList.add("nav");
+  nav.id = "navbar"; // Le damos ID para manipularlo fácil
 
-  const botonSobreMi = crearBoton("About me", crearSobreMi);
-  const botonProyectos = crearBoton("Projects", crearProyectos);
-  const botonContacto = crearBoton("Contact", crearContacto);
-  const botonHome = crearBoton("Home", crearInicio);
-  sectionHeader.appendChild(imgnav);
+  // Función auxiliar para cerrar menú al hacer click en un enlace
+  const cerrarMenu = () => {
+    nav.classList.remove("active");
+    hamburger.classList.remove("active");
+  };
+
+  const botonHome = crearBoton("Home", () => { crearInicio(); cerrarMenu(); });
+  const botonSobreMi = crearBoton("About me", () => { crearSobreMi(); cerrarMenu(); });
+  const botonProyectos = crearBoton("Projects", () => { crearProyectos(); cerrarMenu(); });
+  const botonContacto = crearBoton("Contact", () => { crearContacto(); cerrarMenu(); });
+
   nav.appendChild(botonHome);
   nav.appendChild(botonSobreMi);
   nav.appendChild(botonProyectos);
   nav.appendChild(botonContacto);
 
+  // --- BOTÓN HAMBURGUESA ---
+  const hamburger = document.createElement("button");
+  hamburger.classList.add("hamburger");
+  
+  // Creamos las 3 líneas del icono
+  for(let i=0; i<3; i++) {
+      const span = document.createElement("span");
+      hamburger.appendChild(span);
+  }
+
+  // Evento Toggle (Abrir/Cerrar)
+  hamburger.addEventListener("click", () => {
+    nav.classList.toggle("active");
+    hamburger.classList.toggle("active");
+  });
+
+  // --- ENSAMBLADO FINAL ---
   header.appendChild(sectionHeader);
+  header.appendChild(hamburger); // El botón va fuera del nav pero dentro del header
   header.appendChild(nav);
 
   document.getElementById("root").appendChild(header);
@@ -79,7 +111,7 @@ redes.appendChild(
 redes.appendChild(
   crearImagenConEnlace(
     "https://cdn-icons-png.flaticon.com/512/174/174857.png",
-    "https://www.linkedin.com",
+    "http://www.linkedin.com/in/lauraalvarezzunino",
     "iconoSocial"
   )
 );
@@ -165,7 +197,8 @@ function crearSobreMi() {
     "UX/UI Design: Figma, WordPress, usability principles",
     "Tools: Git, GitHub, VS Code, DBeaver, Postman, JSON, XML, RESTful API design, Cisco Packet Tracer, Vim, Canva, terminal basics",
     "Methodologies: Scrum, Agile teamwork, Waterfall model",
-    "Concepts: Structured programming, OOP, fundamentals of TDD"
+    "Concepts: Structured programming, OOP, fundamentals of TDD",
+    "Languages: English A1 (beginner)"
   ];
 
   hardItems.forEach(skill => {

@@ -20,7 +20,7 @@
   width: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   background-color: rgba(25, 25, 37, 0.8);
-  padding: 10px 20px;
+  padding: 0px 20px;
   display: flex;
   justify-content: space-between; 
   align-items: center;
@@ -37,9 +37,8 @@
   gap: 10px;
 }
 .imgnav{
-height: 70px;
+height: 60px;
  margin:0px;
-
  display: flex;
 }
 
@@ -88,7 +87,7 @@ height: 70px;
 
 /* --------------------- INICIO----------------------- */
 .tituloInicio {
-  font-size: 400%;
+  font-size: 300%;
   color: white;
   font-weight: bold;
   text-shadow: 2px 2px 8px black;
